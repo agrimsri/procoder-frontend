@@ -67,14 +67,14 @@ const SellProduct = () => {
       const data = new FormData();
       data.append("title", formData.title);
       data.append("description", formData.description);
-      data.append("category", formData.category);
+      data.append("categoryId", formData.category);
       data.append("condition", formData.condition);
       data.append("price", formData.price);
-      data.append("is_auction", String(formData.is_auction));
+      data.append("isAuction", String(formData.is_auction));
       data.append("location", formData.location);
-      // imageFiles.forEach((file) => {
-      //   data.append("images", file);
-      // });
+      imageFiles.forEach((file) => {
+        data.append("images", file);
+      });
       const response = await axios.post(API_ENDPOINTS.PRODUCTS, data, {
         headers: {
           Authorization: token,
